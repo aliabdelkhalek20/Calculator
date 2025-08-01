@@ -1,0 +1,182 @@
+:root {
+    --primary: #3498db;
+    --primary-dark: #2980b9;
+    --secondary: #e74c3c;
+    --secondary-dark: #c0392b;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --darker: #1a252f;
+    --gray: #95a5a6;
+    --dark-gray: #7f8c8d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --light: #2c3e50;
+    --dark: #ecf0f1;
+    --darker: #bdc3c7;
+    --gray: #34495e;
+    --dark-gray: #95a5a6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.calculator {
+    background-color: var(--light);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary);
+    color: white;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+.display {
+    padding: 20px;
+    text-align: right;
+    background-color: var(--gray);
+    color: white;
+}
+
+.previous-operand {
+    min-height: 24px;
+    font-size: 1rem;
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.current-operand {
+    font-size: 2rem;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--light);
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: var(--light);
+    color: var(--dark);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow);
+}
+
+.number {
+    background-color: var(--light);
+}
+
+.operator {
+    background-color: var(--primary);
+    color: white;
+}
+
+.operator:hover {
+    background-color: var(--primary-dark);
+}
+
+#equals {
+    background-color: var(--primary);
+    color: white;
+}
+
+#equals:hover {
+    background-color: var(--primary-dark);
+}
+
+#clear {
+    background-color: var(--secondary);
+    color: white;
+}
+
+#clear:hover {
+    background-color: var(--secondary-dark);
+}
+
+#delete {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+#delete:hover {
+    background-color: var(--gray);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+@media (max-width: 400px) {
+    .calculator {
+        max-width: 300px;
+    }
+    
+    button {
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+    
+    .current-operand {
+        font-size: 1.8rem;
+    }
+}
